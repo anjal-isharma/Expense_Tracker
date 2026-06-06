@@ -3,14 +3,12 @@ import os
 
 FILE_NAME = "expenses.csv"
 
-# Create file with header only once
 def initialize_file():
     if not os.path.isfile(FILE_NAME):
         with open(FILE_NAME, "w", newline="") as file:
             writer = csv.writer(file)
             writer.writerow(["Amount", "Category", "Total"])
 
-# Get last total
 def get_last_total():
     total = 0
     try:
@@ -23,7 +21,6 @@ def get_last_total():
         pass
     return total
 
-# Add Expense
 def add_expense():
     amount = float(input("Enter amount: "))
     category = input("Enter category: ")
@@ -37,7 +34,6 @@ def add_expense():
 
     print(f"Expense saved! Running total: ₹{new_total}\n")
 
-# View Expenses
 def view_expenses():
     try:
         with open(FILE_NAME, "r") as file:
@@ -50,12 +46,10 @@ def view_expenses():
     except FileNotFoundError:
         print("No data found.\n")
 
-# Total Expense (latest total)
 def total_expense():
     total = get_last_total()
     print(f"Total spending: ₹{total}\n")
 
-# Menu
 def menu():
     initialize_file()
 
