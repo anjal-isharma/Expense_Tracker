@@ -1,13 +1,13 @@
 import re
 import random
 
-# --- Preprocessing function ---
+
 def clean_text(text):
     text = text.lower()
     text = re.sub(r'[^\w\s]', '', text)  # remove punctuation
     return text
 
-# --- Intent responses ---
+
 responses = {
     "greeting": ["Hello!", "Hi there!", "Hey! How can I help you?"],
     "how_are_you": ["I'm just code, but I'm doing great 😄", "All good! What about you?"],
@@ -16,7 +16,7 @@ responses = {
     "default": ["I didn't understand that 🤔", "Can you rephrase?", "Hmm, interesting... tell me more."]
 }
 
-# --- Intent matching ---
+
 def get_intent(user_input):
     if any(word in user_input for word in ["hi", "hello", "hey"]):
         return "greeting"
@@ -29,7 +29,7 @@ def get_intent(user_input):
     else:
         return "default"
 
-# --- Chat loop ---
+
 print("🤖 Chatbot: Hello! Type 'bye' to exit.")
 
 while True:
